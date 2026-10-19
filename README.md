@@ -14,7 +14,7 @@ This is a website that utilizes a movie poster API and is hosted with flask (ord
 
 *WINDOWS*
 ```
-`> source [name]/scripts/activate 
+> source [name]/scripts/activate 
 ```
 *MAC*
 ```
