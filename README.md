@@ -1,4 +1,4 @@
-## FLASK INHERITANCE MOVIE POSTERS
+# FLASK INHERITANCE MOVIE POSTERS
 
 This is a website that utilizes a movie poster API and is hosted with flask (ordered in a similar format to django).
 
