@@ -2,31 +2,66 @@
 
 This is a website that utilizes a movie poster API and is hosted with flask (ordered in a similar format to django).
 
-### HOW TO GET STARTED
+## HOW TO GET STARTED
 
-**Create a virtual environment** <br>
-`> python -m venv [name]`
+### 1. Create a virtual environment 
 
-**Run the environment** <br>
-[windows - git bash]`> source [name]/scripts/activate ` <br>
-[mac - bash]`> source [name]/bin/activate `
+```
+> python -m venv [name]
+```
 
-**Install python lib requirements** <br>
-[windows - git bash]`> pip install -r requirements.txt ` <br>
-[mac - bash]`> pip3 install -r requirements.txt` 
+### 2. Run the environment 
 
-**Go into the site directory** <br>
-`> cd movie_posters_site` <br>
+*WINDOWS*
+```
+`> source [name]/scripts/activate 
+```
+*MAC*
+```
+> source [name]/bin/activate 
+```
 
-**Run the server** <br>
-[windows - git bash]`> python manage.py runserver` <br>
-[mac - bash]`> python3 manage.py runserver` 
+### 3. Install python lib requirements 
 
-**Update JS files (if needed)** <br>
-[one time update]`> npx tsc` <br>
-[continuous update] `> npx tsc --watch` 
+*WINDOWS*
+```
+> pip install -r requirements.txt 
+``` 
+*MAC*
+``` 
+> pip3 install -r requirements.txt 
+``` 
 
-### STRUCTURE
+### 4. Go into the site directory 
+
+```
+> cd movie_posters_site
+```
+
+### 5. Run the server 
+
+*WINDOWS*
+```
+> python manage.py runserver
+```
+*MAC*
+```
+> python3 manage.py runserver
+```
+
+### 6. Update JS files (if needed)
+
+*One time update*
+```
+> npx tsc
+```
+*Continuous update*
+```
+> npx tsc --watch
+``` 
+
+## PROJECT STRUCTURE
+
 The project is built like this (miscellaneous things are omitted for clarity):
 
 ```
