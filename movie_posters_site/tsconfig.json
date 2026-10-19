@@ -2,8 +2,8 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    // "rootDir": "./src",
-    // "outDir": "./dist",
+    "rootDir": "./static/ts",
+    "outDir": "./static/js",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
@@ -40,5 +40,8 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
+
+    "esModuleInterop": true,
+    "rewriteRelativeImportExtensions": true
   }
 }
