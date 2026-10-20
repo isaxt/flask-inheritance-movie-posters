@@ -65,15 +65,22 @@ This is a website that utilizes a movie poster API and is hosted with flask (ord
 The project is built like this (miscellaneous things are omitted for clarity):
 
 ```
-root/ 
+root/
 ├── movie_posters_site/
-│   ├── static/
-|   |   ├── js/
-|   |   ├── ts/
-|   |   └── css/
-│   ├── templates/
-│   ├── manage.py
-│   └── views.py
+│   ├── movie_posters_site/         # Actual flask site with views, api views, and other .py files
+│   │   ├── static/
+│   │   │   ├── css/                # CSS style sheets
+│   │   │   ├── decals/             # Assets
+│   │   │   ├── js/                 # Compiled JavaScript, declarations, and source maps
+│   │   │   └── ts/
+│   │   ├── templates/              # Template files that are served
+│   │   ├── __init__.py
+│   │   ├── app.py                  # Inits flask instance
+│   │   ├── views.py                # Standard url routes
+│   │   └── views_api.py            # Api url routes
+│   ├── manage.py                   # Server starter + terminal command executioner
+│   ├── package.json
+│   └── tsconfig.json
 ├── README.md
 └── requirements.txt
 ```
