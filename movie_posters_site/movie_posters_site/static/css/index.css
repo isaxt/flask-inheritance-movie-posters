@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --result-container-width: 20vw;
+}
+
+/* =======================================================
+MACRO STYLNG
+========================================================== */
+ 
+html,
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    font-family: Helvetica;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    background: #111111;
+}
+
+/* =======================================================
+MOVIE RESULTS CONTAINER STYLING (and its children)
+========================================================== */
+
+/* movie results parent container */
+.movie-results {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+}
+
+/* individual result container styling */
+.movie-results__result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: var(--result-container-width);
+    padding: 20px;
+    color: #ffffff;
+
+    transition: transform 0.25s ease-out;
+}
+
+@media(hover:hover) {
+    .movie-results__result-container:hover {
+        transform: scale(1.05);
+    }
+}
+
+.movie-results__result-container strong {
+    width: 100%;
+    padding: 20px 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    background: #1f1f1f;
+}
+
+.movie-results__result-container img {
+    width: var(--result-container-width);
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px 3px #000000;
+}
+
+/* =======================================================
+MOVIE QUERIES STYLING (and its children)
+========================================================== */
+
+/* movie queries parent container */
+.movie-queries {
+    position: fixed;
+
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* input form related stuff */
+.input-form__discover-btn {
+    border: none;
+
+    padding: 15px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff;
+    box-shadow: 0px 2px 5px 2px #000000;
+    border-radius: 1000px;
+    cursor: pointer;
+    background: #444444;
+
+    transition: 
+        background 0.25s ease-in-out,
+        transform 0.25s ease-in-out;
+}
+
+@media(hover:hover) {
+    .input-form__discover-btn:hover {
+        background: #555555;
+        transform: scale(1.1);
+    }
+}

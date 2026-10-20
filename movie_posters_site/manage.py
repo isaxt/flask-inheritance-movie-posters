@@ -1,6 +1,6 @@
 import sys
-# import app from views because that's how we'll run the server via manage.py
-from views import app
+# import the app instance so we can run it here 
+from movie_posters_site.app import app
 from typing import Any
 
 # there are the commands we can put in the terminal to run them

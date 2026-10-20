@@ -2,8 +2,8 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    "rootDir": "./static/ts",
-    "outDir": "./static/js",
+    "rootDir": "./movie_posters_site/static/ts",
+    "outDir": "./movie_posters_site/static/js",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module

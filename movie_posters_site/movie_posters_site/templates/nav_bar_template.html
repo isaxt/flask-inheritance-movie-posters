@@ -1,0 +1,13 @@
+<!-- nav bar component -->
+<nav class="nav-bar">
+	<div class="nav-bar__title-logo">
+		<img src="{{ url_for('static', filename='decals/Scoop_Logo.svg') }}">
+		<span>THE SCOOP</span>
+	</div>
+	<div class="nav-bar__links">
+		<a href="/about">ABOUT</a>
+		<a href="/misc">MISC</a>
+	</div>
+</nav>
+<!-- pushes elements down in the dom flow to make way for the nav bar -->
+<div class="header-space"></div>

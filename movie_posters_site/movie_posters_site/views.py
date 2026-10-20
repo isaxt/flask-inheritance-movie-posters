@@ -2,13 +2,14 @@ from datetime import datetime
 from pathlib import Path
 
 import pandas as pd
-from flask import Flask, render_template, json
+from flask import render_template
 
-# create our app to allow us to host the site
-app = Flask(__name__)
+from .app import app_bp
 
 # create our url routes and their logic here
-@app.route("/", methods=["GET","POST"])
+@app_bp.route("/")
 def index() -> str:
     return render_template("index.html")
+
+
 

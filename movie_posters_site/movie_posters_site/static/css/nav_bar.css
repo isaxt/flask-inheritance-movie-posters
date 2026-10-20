@@ -1,0 +1,65 @@
+:root {
+    --header-spacing: 60px;
+}
+
+/* =======================================================
+HEADER STYLING
+========================================================== */
+
+.header-space {
+    height: var(--header-spacing);
+    /* prevents other flex items from smushing the height of the header space if space runs out*/
+    flex-shrink: 0;
+}
+
+/* =======================================================
+NAV BAR STYLING
+========================================================== */
+
+.nav-bar {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: var(--header-spacing);
+    z-index: 100;
+    background: #222222;
+}
+
+.nav-bar__title-logo {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0px 0px 0px 20px;
+}
+
+.nav-bar__title-logo img {
+    height: calc(var(--header-spacing) - 10px);
+    width: auto;
+}
+
+.nav-bar__links {
+    justify-self: flex-end;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.nav-bar__links a {
+    text-decoration: none;
+
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0px 40px 0px 0px;
+    color: #ffffff;
+
+    transition: color 0.25s ease-in-out;
+}
+
+@media(hover:hover) {
+    .nav-bar a:hover {
+        color: #a1a1a1;
+    }
+}
