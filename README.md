@@ -38,7 +38,15 @@ This is a website that utilizes a movie poster API and is hosted with flask (ord
 > cd movie_posters_site
 ```
 
-### 5. Run the server 
+### 5. Get an API_KEY/API_READ_ACCESS_TOKEN from tmdb 
+
+*Link to register for api key is here: https://www.themoviedb.org/settings/api/request*
+
+### 6. Replace the API_KEY & AUTH_TOKEN variables in views.py with your key & access token
+
+*See project structure below or browse the directory to find where views.py is at*
+
+### 7. Run the server 
 
 *WINDOWS*
 ```
@@ -49,7 +57,7 @@ This is a website that utilizes a movie poster API and is hosted with flask (ord
 > python3 manage.py runserver
 ```
 
-### 6. Update JS files (if needed)
+### 8. Update JS files (if needed)
 
 *One time update*
 ```
