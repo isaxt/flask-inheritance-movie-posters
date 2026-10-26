@@ -1,6 +1,5 @@
 import {} from "./movie_data.js";
 export class IndexPage {
-    movieResultsContainer = null;
     userPrompt = null;
     createdElements = [];
     constructor() {
@@ -9,22 +8,11 @@ export class IndexPage {
     // umbrella function to initialize everything for the index page
     init() {
         // FIELD INITIALIZATIONS
-        // init the movie results container field
-        this.initMovieResultsContainerField();
         // create a user prompt element that instructs the user on what to do and assign it to our user prompt field
         this.initUserPromptField();
         // ELEMENT INITIALIZATIONS
         // init the movie queries input form
         this.initMovieQueriesInputForm();
-    }
-    // initializes the movieResultsContainer field with a reference to the movie results container element
-    initMovieResultsContainerField() {
-        const movieResultsContainer = document.querySelector(".movies-content__results");
-        if (movieResultsContainer === null) {
-            console.warn("Movie results container doesn't exist");
-            return;
-        }
-        this.movieResultsContainer = movieResultsContainer;
     }
     // initializes the movie queries input form 
     initMovieQueriesInputForm() {
@@ -61,8 +49,9 @@ export class IndexPage {
     }
     // displays the movie results from the discover api route
     displayDiscoverMovieResults(results) {
-        if (this.movieResultsContainer === null) {
-            console.warn("Movie results container field not initialized");
+        const movieResultsContainer = document.querySelector(".movies-content__results");
+        if (movieResultsContainer === null) {
+            console.warn("Movie results container doesn't exist");
             return;
         }
         // remove current movie results first, if any
@@ -70,7 +59,7 @@ export class IndexPage {
         // iterate through each movie discover result
         results.forEach((result) => {
             // ts compiler requires this in any callback function I guess
-            if (this.movieResultsContainer === null)
+            if (movieResultsContainer === null)
                 return;
             // create an individual movie results container for each result
             // the container has the movie poster + title coupled with its language + an overview/description of the movie
@@ -85,17 +74,13 @@ export class IndexPage {
             movieDescription.innerHTML = result.overview;
             // group and put the elements into the DOM
             movieResultContainer.append(movieImage, movieTitle, movieDescription);
-            this.movieResultsContainer.append(movieResultContainer);
+            movieResultsContainer.append(movieResultContainer);
             // add the container to our created elements array
             this.createdElements.push(movieResultContainer);
         });
     }
     // clears the current movie results
     clearCurrentMovieResults() {
-        if (this.movieResultsContainer === null) {
-            console.warn("Movie results container field not initialized");
-            return;
-        }
         // iterate through all the created elements and remove them to scrap them for garbage collection
         this.createdElements.forEach((el) => el.remove());
         // remove complete reference of these movie result elements so they can be garbage collected

@@ -1,7 +1,6 @@
 import {type movieDiscoverData, type movieDiscoverResults} from "./movie_data.ts";
 
 export class IndexPage {
-    private movieResultsContainer: HTMLDivElement | null = null;
     private userPrompt: HTMLDivElement | null = null;
     private createdElements: HTMLElement[] = [];
 
@@ -13,8 +12,6 @@ export class IndexPage {
     private init(): void {
         // FIELD INITIALIZATIONS
 
-        // init the movie results container field
-        this.initMovieResultsContainerField();
         // create a user prompt element that instructs the user on what to do and assign it to our user prompt field
         this.initUserPromptField();
 
@@ -22,17 +19,6 @@ export class IndexPage {
 
         // init the movie queries input form
         this.initMovieQueriesInputForm();
-    }
-
-    // initializes the movieResultsContainer field with a reference to the movie results container element
-    private initMovieResultsContainerField(): void {
-        const movieResultsContainer: HTMLDivElement | null = document.querySelector(".movies-content__results");
-        if (movieResultsContainer === null) {
-            console.warn("Movie results container doesn't exist");
-            return;
-        }
-
-        this.movieResultsContainer = movieResultsContainer;
     }
 
     // initializes the movie queries input form 
@@ -75,8 +61,9 @@ export class IndexPage {
 
     // displays the movie results from the discover api route
     private displayDiscoverMovieResults(results: movieDiscoverResults[]): void {
-        if (this.movieResultsContainer === null) {
-            console.warn("Movie results container field not initialized");
+        const movieResultsContainer: HTMLDivElement | null = document.querySelector(".movies-content__results");
+        if (movieResultsContainer === null) {
+            console.warn("Movie results container doesn't exist");
             return;
         }
 
@@ -86,7 +73,7 @@ export class IndexPage {
         // iterate through each movie discover result
         results.forEach((result: movieDiscoverResults) => {
             // ts compiler requires this in any callback function I guess
-            if (this.movieResultsContainer === null)
+            if (movieResultsContainer === null)
                 return;
 
             // create an individual movie results container for each result
@@ -105,7 +92,7 @@ export class IndexPage {
 
             // group and put the elements into the DOM
             movieResultContainer.append(movieImage, movieTitle, movieDescription);
-            this.movieResultsContainer.append(movieResultContainer);
+            movieResultsContainer.append(movieResultContainer);
 
             // add the container to our created elements array
             this.createdElements.push(movieResultContainer);
@@ -114,11 +101,6 @@ export class IndexPage {
 
     // clears the current movie results
     private clearCurrentMovieResults(): void {
-        if (this.movieResultsContainer === null) {
-            console.warn("Movie results container field not initialized");
-            return;
-        }
-
         // iterate through all the created elements and remove them to scrap them for garbage collection
         this.createdElements.forEach((el: HTMLElement) => el.remove());
         // remove complete reference of these movie result elements so they can be garbage collected
