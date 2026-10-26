@@ -42,9 +42,18 @@ This is a website that utilizes a movie poster API and is hosted with flask (ord
 
 *Link to register for api key is here: https://www.themoviedb.org/settings/api/request*
 
-### 6. Replace the API_KEY & AUTH_TOKEN variables in views.py with your key & access token
+### 6. Create an .env file
 
-*See project structure below or browse the directory to find where views.py is at*
+1. Create an .env file anywhere you want, though it is recommended to do it at **root/movie_posters_site/** *(the directory you're currently in)*, where the **manage.py file** is located *(see the directory structure below)*.
+
+2. Add the following two keys to the env file *(these are case-sensitive)*:
+
+    ```
+    API_KEY=[YOUR API KEY]
+    AUTH_TOKEN=[YOUR API READ ACCESS TOKEN]
+    ```
+
+3. Do not worry about configuring anything else related to the .env file. All the logic has already been set up. Just make sure you have a working a api key and read key from the movie db site.
 
 ### 7. Run the server 
 
