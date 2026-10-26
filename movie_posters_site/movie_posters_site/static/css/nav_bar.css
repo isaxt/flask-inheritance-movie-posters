@@ -1,4 +1,5 @@
 :root {
+    /* global var for the nav bar's header vertical spacing */
     --header-spacing: 60px;
 }
 
@@ -25,6 +26,8 @@ NAV BAR STYLING
     background: #222222;
 }
 
+/* title logo */
+
 .nav-bar__title-logo {
     display: flex;
     flex: 1;
@@ -34,20 +37,31 @@ NAV BAR STYLING
     font-size: 30px;
     padding: 0px 0px 0px 20px;
 }
-
 .nav-bar__title-logo img {
     height: calc(var(--header-spacing) - 10px);
     width: auto;
 }
+.nav-bar__title-logo a {
+    text-decoration: none;
+    
+    color: #ffffff;
+    transition: color 0.25s ease-in-out;
+}
+@media(hover:hover) {
+    .nav-bar__title-logo a:hover {
+        color: #a1a1a1;
+    }
+}
 
-.nav-bar__links {
+/* miscellaneous links (the other clickable links) */
+
+.nav-bar__misc-links {
     justify-self: flex-end;
     display: flex;
     justify-content: end;
     align-items: center;
 }
-
-.nav-bar__links a {
+.nav-bar__misc-links a {
     text-decoration: none;
 
     font-weight: bold;
@@ -57,7 +71,6 @@ NAV BAR STYLING
 
     transition: color 0.25s ease-in-out;
 }
-
 @media(hover:hover) {
     .nav-bar a:hover {
         color: #a1a1a1;

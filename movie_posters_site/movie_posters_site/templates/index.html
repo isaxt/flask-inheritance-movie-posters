@@ -3,27 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Home</title>
 
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/nav_bar.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
 </head>
 <body>
-	<!-- Include the nav bar here -->
+	<!-- The nav bar is here -->
 	{% include "nav_bar_template.html" %}
 
 	<!-- Main page contents are here -->
-	<main>
+	<main class="movies-content">
 		<!-- Movie results retrieved from api will be displayed here -->
-		<section class="movie-results">
+		<section class="movies-content__results">
 		</section>
 		<!-- Discover movie results input form -->
-		<section class="movie-queries">
-			<form class="movie-queries__input-form" method="get">
+		<section class="movies-content__queries">
+			<form class="queries__input-form" method="get">
 				<button class="input-form__discover-btn" type="submit">DISCOVER</button>
 			</form>
 		</section>
 	</main>
+
+	<!-- The footer is here -->
+	{% include "footer_template.html" %}
+
 	<script type="module" src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>

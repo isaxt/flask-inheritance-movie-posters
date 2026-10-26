@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance</title>
+
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/maintenance.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/nav_bar.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+</head>
+<body>
+	<!-- Include the nav bar here -->
+	{% include "nav_bar_template.html" %}
+
+	<!-- This is where all the contents related to the maintenace body will be -->
+	<main class="maintenance-body">
+		<!-- Logo for the maintenance page -->
+		<img class="maintenance-body__logo" src="{{ url_for('static', filename='decals/Page_Maintenance_Logo.svg') }}">
+		<!-- Maintenance message container  -->
+		<section class="maintenance-body__message">
+			<strong class="message__title">
+				🔧MAINTENANCE🔧
+			</strong>
+			<div class="message__description">
+				<!-- Since this page will serve as a base template, an block here will be set -->
+				{% block message %}
+				{% endblock %}
+			</div>
+		</section>
+	</main>
+	<!-- Include the footer here -->
+	{% include "footer_template.html" %}
+</body>
+</html>

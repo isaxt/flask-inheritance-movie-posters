@@ -2,6 +2,7 @@ import {type movieDiscoverData, type movieDiscoverResults} from "./movie_data.ts
 
 export class IndexPage {
     private movieResultsContainer: HTMLDivElement | null = null;
+    private userPrompt: HTMLDivElement | null = null;
     private createdElements: HTMLElement[] = [];
 
     constructor() {
@@ -10,13 +11,22 @@ export class IndexPage {
 
     // umbrella function to initialize everything for the index page
     private init(): void {
+        // FIELD INITIALIZATIONS
+
+        // init the movie results container field
         this.initMovieResultsContainerField();
+        // create a user prompt element that instructs the user on what to do and assign it to our user prompt field
+        this.initUserPromptField();
+
+        // ELEMENT INITIALIZATIONS
+
+        // init the movie queries input form
         this.initMovieQueriesInputForm();
     }
 
     // initializes the movieResultsContainer field with a reference to the movie results container element
     private initMovieResultsContainerField(): void {
-        const movieResultsContainer: HTMLDivElement | null = document.querySelector(".movie-results");
+        const movieResultsContainer: HTMLDivElement | null = document.querySelector(".movies-content__results");
         if (movieResultsContainer === null) {
             console.warn("Movie results container doesn't exist");
             return;
@@ -27,7 +37,7 @@ export class IndexPage {
 
     // initializes the movie queries input form 
     private initMovieQueriesInputForm(): void {
-        const movieQueriesInputForm: HTMLButtonElement | null = document.querySelector(".movie-queries__input-form");
+        const movieQueriesInputForm: HTMLButtonElement | null = document.querySelector(".queries__input-form");
 
         if (movieQueriesInputForm === null) {
             console.warn("Movie queries input form doesn't exist");
@@ -39,6 +49,8 @@ export class IndexPage {
         movieQueriesInputForm.addEventListener("submit", async (ev: SubmitEvent) => {
             // prevent page refresh
             ev.preventDefault();
+            // remove the user prompt (if it exists)
+            this.removeUserPrompt();
 
             // intercept the vanilla submit event and manually fetch the data ourselves
             try {
@@ -86,7 +98,7 @@ export class IndexPage {
             const movieDescription: HTMLDivElement = document.createElement("div");
 
             // add the corresponding styling for each element
-            movieResultContainer.classList.add("movie-results__result-container");
+            movieResultContainer.classList.add("results__result-container");
             movieImage.src = "https://image.tmdb.org/t/p/original" + result.poster_path; 
             movieTitle.innerHTML = result.title + ` (${result.original_language})`;
             movieDescription.innerHTML = result.overview;
@@ -107,9 +119,46 @@ export class IndexPage {
             return;
         }
 
-        // removes all inner HTML items
-        this.movieResultsContainer.innerHTML = "";
-        // then iterate through all the created elements and remove them to scrap them for garbage collection
+        // iterate through all the created elements and remove them to scrap them for garbage collection
         this.createdElements.forEach((el: HTMLElement) => el.remove());
+        // remove complete reference of these movie result elements so they can be garbage collected
+        this.createdElements = [];
+    }
+
+    // on page load, create a prompt that instructs users what to do on the home page and assign it to the corresponding field
+    private initUserPromptField(): void {
+        // get the parent container that holds all of the elements related to movies (e.g. movie results, querying, etc)
+        const moviesContentContainer: HTMLDivElement | null = document.querySelector(".movies-content");
+
+        if (moviesContentContainer === null) {
+            console.warn("The parent movies content container doesn't exist");
+            return;
+        }
+
+        // create a user prompt element
+        const userPrompt: HTMLDivElement = document.createElement("aside") as HTMLDivElement;
+        // add the styling
+        userPrompt.classList.add("movies-content__user-prompt");
+        userPrompt.innerHTML = "Click the discover button to see movie recommendations. Enjoy!";
+        // append the element to the parent container
+        moviesContentContainer.append(userPrompt);
+        // assign the user prompt to our field
+        this.userPrompt = userPrompt;
+    }
+
+    // removes the user prompt (if it exists) and sends it to garbage collection
+    private removeUserPrompt(): void {
+        if (this.userPrompt === null) {
+            console.log(
+                "User prompt has not been initialized or has already been destroyed",
+                "Ignore this message if had already been initialized"
+            );
+            return;
+        }
+
+        // remove the item from the DOM
+        this.userPrompt.remove();
+        // set our reference back to null
+        this.userPrompt = null;
     }
 }

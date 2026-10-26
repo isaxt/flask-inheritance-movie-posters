@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>About</title>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/nav_bar.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+</head>
+<body>
+	<!-- Include the nav bar here -->
+	{% include "nav_bar_template.html" %}
+	<!-- This is where the about page contents are located -->
+	<main class="about-body">
+		<!-- Site logo specific for the about body -->
+		<section class="about-body__logo">
+			<img src="{{ url_for('static', filename='decals/Scoop_Logo.svg') }}">
+			<span>THE SCOOP</span>
+		</section>
+		<!-- Divider -->
+		<div class="about-body__divider"></div>
+		<!-- About page description -->
+		<section class="about-body__description">
+			<p>
+				Created by 2 programmers who are avid movie fanatics and were tired of the lack of centralized movie information, THE
+				SCOOP is an open source project dedicated to providing you with all things movies — stats, trends, ticket pricing, ratings, etc. 
+			</p>
+			<p>
+				No longer are the days of switching between local movie sites, AMC/REGAL, IMDB, and Rotten Tomatos to get information about 
+				a movie that you wanted to watch, THE SCOOP does it all for you. 
+			</p>
+			<p>
+				Simple, intuitive, and easy to navigate, explore the site now to get started.
+			</p>
+		</section>
+	</main>
+
+	<!-- Include the footer here -->
+	{% include "footer_template.html" %}
+</body>
+</html>

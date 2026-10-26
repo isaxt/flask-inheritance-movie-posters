@@ -1,0 +1,17 @@
+/* =======================================================
+FOOTER STYLING
+========================================================== */
+
+.footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    padding: 20px 0px;
+    background: #111111;
+}
+.footer p {
+    font-size: 10px;
+    font-weight: 600;
+    color: #818181;
+}

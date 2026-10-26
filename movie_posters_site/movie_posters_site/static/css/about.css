@@ -1,0 +1,84 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+:root {
+    /* global var for about body logo size */
+    --about-body-logo-size: 100px;
+}
+
+/* =======================================================
+MACRO STYLNG
+========================================================== */
+ 
+html,
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: Helvetica;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    background: #111111;
+}
+
+/* =======================================================
+ABOUT BODY STYLING (and its children)
+========================================================== */
+ 
+.about-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* website logo for the about body*/
+
+.about-body__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about-body__logo img {
+    width: var(--about-body-logo-size);
+    height: auto;
+}
+.about-body__logo span {
+    /* prevent text wrapping when the text's width is reduced */
+    width: max-content;
+    color: #ffffff;
+    font-size: var(--about-body-logo-size);
+    font-weight: bolder;
+}
+
+/* about body divider */
+
+.about-body__divider {
+    width: 75px;
+    border: solid 2px #ffffff;
+    border-radius: 100px;
+    margin: 10px 0px 40px 0px;
+}
+
+/* about body description */
+
+.about-body__description {
+    width: 50%;
+    border: solid 3px #ffffff;
+    border-radius: 20px;
+    padding: 20px 0px;
+    color: #ffffff;
+}
+.about-body__description p {
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+}

@@ -1,4 +1,5 @@
 import sys
+from dotenv import load_dotenv
 # import the app instance so we can run it here 
 from movie_posters_site.app import app
 from typing import Any
@@ -13,6 +14,9 @@ COMMANDS: dict[str,Any] = {
 # terminal--> any argument
 
 if (__name__ == "__main__"):
+    # load environment variables (e.g. get our api key and auth token keys)
+    load_dotenv()
+
     # if there are any commands in the terminal
     if (len(sys.argv) > 0):
         # execute that command (if it exists)
