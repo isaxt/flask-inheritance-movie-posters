@@ -6,8 +6,13 @@ This is a website that utilizes a movie poster API and is hosted with flask (ord
 
 ### 1. Create a virtual environment 
 
+*WINDOWS*
 ```
 > python -m venv [name]
+```
+*MAC*
+```
+> python3 -m venv [name]
 ```
 
 ### 2. Run the environment 
